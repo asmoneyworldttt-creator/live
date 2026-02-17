@@ -1,0 +1,43 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --primary: #8b5cf6;
+  /* Violet-500 */
+  --secondary: #ec4899;
+  /* Pink-500 */
+  --bg-dark: #0f0f17;
+  --bg-card: #161621;
+}
+
+body {
+  @apply bg-[#0f0f17] text-white;
+  font-family: 'Inter', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.admin-card {
+  @apply bg-[#161621] border border-white/5 rounded-2xl shadow-xl p-6 transition-all duration-300 hover:border-violet-500/20;
+}
+
+.gradient-text {
+  @apply bg-gradient-to-r from-violet-400 to-pink-400 bg-clip-text text-transparent font-black;
+}
+
+.btn-admin {
+  @apply px-4 py-2 bg-violet-600 hover:bg-violet-700 text-white rounded-xl transition-all active:scale-95 font-bold shadow-lg shadow-violet-900/40;
+}
+
+.status-badge {
+  @apply px-3 py-1 rounded-full text-[10px] font-black uppercase tracking-widest;
+}
+
+.table-header {
+  @apply px-6 py-4 text-left text-xs font-black text-gray-500 uppercase tracking-widest border-b border-white/5;
+}
+
+.table-cell {
+  @apply px-6 py-4 whitespace-nowrap text-sm text-gray-300 border-b border-white/[0.02];
+}

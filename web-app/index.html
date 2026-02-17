@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Discovery &amp; Matching Feed</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#7c3aed",
+                        "secondary": "#f43f5e",
+                        "accent": "#0ea5e9",
+                        "background-light": "#fcfaff",
+                        "background-dark": "#0c0617",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    animation: {
+                        'glow': 'glow 2s ease-in-out infinite alternate',
+                        'float': 'float 3s ease-in-out infinite',
+                    },
+                    keyframes: {
+                        glow: {
+                            '0%': { 'box-shadow': '0 0 5px rgba(124, 58, 237, 0.2), 0 0 10px rgba(124, 58, 237, 0.2)' },
+                            '100%': { 'box-shadow': '0 0 20px rgba(124, 58, 237, 0.6), 0 0 30px rgba(244, 63, 94, 0.4)' },
+                        },
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-5px)' },
+                        }
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(8px);
+        }
+        .match-gradient {
+            background: linear-gradient(135deg, #8855f6 0%, #ff4eb1 100%);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-[#131118] dark:text-white transition-colors duration-300">
+<!-- Header Section -->
+<header class="sticky top-0 z-50 bg-white/60 dark:bg-background-dark/60 backdrop-blur-xl border-b border-white/20 dark:border-primary/10 transition-all duration-500">
+<div class="flex items-center justify-between px-4 py-3">
+<div class="flex items-center gap-3">
+<div class="size-10 rounded-full bg-primary/10 flex items-center justify-center border-2 border-primary/20 overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="User profile avatar smiling" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAgjA74Zk662ijboES6GfSmHFLgyhQcpmt4q15huDwKML2W6s0_Ps_lei7X4RwTXi07HubvBtWMUEhEsyFGw6UMhmcXZJID2y7zFF6xstUr_pUtN8wr3t_w-v3RGAg8TaPHyWsu5Lx9QYWgAeBujZGiPmDnGRPd1NJvKJugPexbnIzRUr_XDaGho5PiDyLgz-mWbEd7d--9QGOTDsP4WbDihx6A0d78sn6nCyqHNnvtT2OItmCKQB4Rid4pgKmV3w3xgh0bqrZzkKLz"/>
+</div>
+<div>
+<h1 class="text-lg font-bold leading-tight tracking-tight">Discovery</h1>
+<p class="text-[10px] uppercase tracking-widest text-primary font-semibold">Premium Feed</p>
+</div>
+</div>
+<div class="flex items-center gap-2">
+<!-- Theme Toggle -->
+<button class="p-2 rounded-full bg-primary/5 hover:bg-primary/10 transition-colors active:rotate-180 transition-transform duration-500">
+<span class="material-symbols-outlined text-primary text-[20px]">dark_mode</span>
+</button>
+<button class="p-2 rounded-full bg-primary/5 hover:bg-primary/10 transition-colors active:rotate-180 transition-transform duration-500">
+<span class="material-symbols-outlined text-primary text-[20px]">tune</span>
+</button>
+</div>
+</div>
+<!-- Search and Filter -->
+<div class="px-4 pb-4">
+<div class="relative group">
+<div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+<span class="material-symbols-outlined text-primary/60 text-[20px]">search</span>
+</div>
+<input class="block w-full pl-10 pr-4 py-3 bg-primary/5 dark:bg-primary/10 border-none rounded-2xl focus:ring-2 focus:ring-primary/40 text-sm placeholder-primary/40 transition-all shadow-inner" placeholder="Search your perfect match..." type="text"/>
+</div>
+</div>
+<!-- Toggle Switch -->
+<div class="px-4 pb-4">
+<div class="flex p-1 bg-primary/5 rounded-xl">
+<button class="flex-1 flex items-center justify-center gap-2 py-2 px-4 rounded-lg bg-white dark:bg-primary shadow-sm text-sm font-semibold transition-all active:rotate-180 transition-transform duration-500">
+<span class="material-symbols-outlined text-[18px]">near_me</span>
+                    Nearby
+                </button>
+<button class="flex-1 flex items-center justify-center gap-2 py-2 px-4 text-primary/60 dark:text-primary/40 text-sm font-semibold transition-all active:rotate-180 transition-transform duration-500">
+<span class="material-symbols-outlined text-[18px]">sensors</span>
+                    Live Now
+                </button>
+</div>
+</div>
+</header>
+<!-- Main Feed -->
+<main class="p-4 space-y-6 pb-24">
+<!-- Featured Card 1 -->
+<div class="relative rounded-2xl overflow-hidden shadow-xl shadow-primary/10 group transition-all duration-500 hover:scale-[1.02] active:scale-[0.98] cursor-pointer">
+<div class="aspect-[3/4] w-full relative">
+<img class="w-full h-full object-cover" data-alt="Young woman in stylish outfit posing outdoors" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAJubZXz85-mn86Dpkc-as79-8TwbBZf4NBq6qMsBztdQpT0CiWSrip5CupWX8rphlioGpQ29qRicP1moMwlxkfsX2i2ZGJPF-VEezkXqP5rgcWnqHO-8u_Wu0bElXKYkcSx4-zShSFmAljJQch6UbI5hraV9hFGkiZqtMH_kasbQ0_7UKqlADsksmo28mdcdZjsM41NjGNolOr1lpIKYo7RJKZ09NPVrzPnt79YE3Uo9qR8B5adMnbpi8TBoTCud-7FqvJtqRvhCjd"/>
+<!-- Match Score Badge -->
+<div class="absolute top-4 left-4 match-gradient p-[2px] rounded-full shadow-lg shadow-primary/40 animate-glow">
+<div class="bg-white dark:bg-background-dark rounded-full px-3 py-1 flex items-center gap-1.5">
+<div class="bg-white/90 dark:bg-background-dark/90 rounded-full px-3 py-1 flex items-center gap-1.5 backdrop-blur-sm">
+<span class="material-symbols-outlined text-primary text-[14px] font-bold">favorite</span>
+<span class="text-xs font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">98% Match</span>
+</div>
+</div>
+</div>
+<!-- Live Indicator -->
+<div class="absolute top-4 right-4 bg-red-500 rounded-full px-2.5 py-1 flex items-center gap-1.5 shadow-lg animate-pulse ring-4 ring-red-500/20 shadow-[0_0_15px_rgba(239,68,68,0.5)]">
+<span class="w-1.5 h-1.5 bg-white rounded-full"></span>
+<span class="text-[10px] font-bold text-white uppercase tracking-wider">Live</span>
+</div>
+<!-- Bottom Info Overlay -->
+<div class="absolute inset-x-0 bottom-0 p-4 pt-12 bg-gradient-to-t from-black/80 via-black/40 to-transparent text-white">
+<div class="flex items-end justify-between">
+<div>
+<div class="flex items-center gap-2 mb-1">
+<h3 class="text-xl font-bold">Sophie, 24</h3>
+<span class="material-symbols-outlined text-blue-400 text-[18px] fill-current">verified</span>
+</div>
+<div class="flex items-center gap-3 text-sm text-white/80">
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">location_on</span> 2.5 miles
+                                </span>
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">work</span> Designer
+                                </span>
+</div>
+</div>
+<button class="match-gradient size-12 rounded-full flex items-center justify-center shadow-lg shadow-primary/40 transform active:scale-90 transition-transform animate-glow">
+<span class="material-symbols-outlined text-white text-[24px]">bolt</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Featured Card 2 -->
+<div class="relative rounded-2xl overflow-hidden shadow-xl shadow-primary/10 group transition-all duration-500 hover:scale-[1.02] active:scale-[0.98] cursor-pointer">
+<div class="aspect-[3/4] w-full relative">
+<img class="w-full h-full object-cover" data-alt="Young man with trendy hairstyle smiling" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAJF1xdYlbKJtS8BpIUFukcRzFxRRjLPca7jBouydJ4gQ3Jd6ES_u-IYpbP0kSTJzXQdqZt8w-X63rcpW32F2YL1KY_GWi_McZ_9xUgJSqNlyeHw0rU2967JvCJYbfRb7EgQAM1r9QBzkQK3_NXrBPNHXOaS2s11ArAFmxxoQOOJN9KqZfwwJmPzz-ib8OiNrajh8bE736M2yhwJ6M8I1G8e9KjlTy-MfuouNeDcjklphJGJU99K8R6AFIUX7tXMNMZcSc05p7cD1Q1"/>
+<div class="absolute top-4 left-4 match-gradient p-[2px] rounded-full shadow-lg shadow-primary/40 animate-glow">
+<div class="bg-white dark:bg-background-dark rounded-full px-3 py-1 flex items-center gap-1.5">
+<div class="bg-white/90 dark:bg-background-dark/90 rounded-full px-3 py-1 flex items-center gap-1.5 backdrop-blur-sm">
+<span class="material-symbols-outlined text-primary text-[14px] font-bold">favorite</span>
+<span class="text-xs font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">89% Match</span>
+</div>
+</div>
+</div>
+<div class="absolute inset-x-0 bottom-0 p-4 pt-12 bg-gradient-to-t from-black/80 via-black/40 to-transparent text-white">
+<div class="flex items-end justify-between">
+<div>
+<div class="flex items-center gap-2 mb-1">
+<h3 class="text-xl font-bold">Julian, 27</h3>
+</div>
+<div class="flex items-center gap-3 text-sm text-white/80">
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">location_on</span> 0.8 miles
+                                </span>
+<span class="flex items-center gap-1 text-green-400 font-medium">
+                                    Active Now
+                                </span>
+</div>
+</div>
+<button class="match-gradient size-12 rounded-full flex items-center justify-center shadow-lg shadow-primary/40 transform active:scale-90 transition-transform animate-glow">
+<span class="material-symbols-outlined text-white text-[24px]">bolt</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Featured Card 3 -->
+<div class="relative rounded-2xl overflow-hidden shadow-xl shadow-primary/10 group transition-all duration-500 hover:scale-[1.02] active:scale-[0.98] cursor-pointer">
+<div class="aspect-[3/4] w-full relative">
+<img class="w-full h-full object-cover" data-alt="Stylish woman in a city setting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCT4R2toriLHaHoUZlFpn1bMKewL9h6zfsnUhiBgHHFUiBkAFpThVJ25Ip53lRIUIkO9M1OYOP79zuCis4Ayo23ccI0n_L4rG4GF8w2yjxsMCcgUwPf4vB7M17lO2jErxOq4kxOpwkdGW0fhoqOZGMDABtIBXVkQqi4D1uslLCxHik5eVglkMGAcshfwxfSxsxR6wrNeIsJjK0i2YPGHlOaZc7w5WtWhXfmZYxtDboIWoHtfOzsRDmW3hNTgLGFA4P0GyvNTuF3MYQJ"/>
+<div class="absolute top-4 left-4 match-gradient p-[2px] rounded-full shadow-lg shadow-primary/40 animate-glow">
+<div class="bg-white dark:bg-background-dark rounded-full px-3 py-1 flex items-center gap-1.5">
+<div class="bg-white/90 dark:bg-background-dark/90 rounded-full px-3 py-1 flex items-center gap-1.5 backdrop-blur-sm">
+<span class="material-symbols-outlined text-primary text-[14px] font-bold">favorite</span>
+<span class="text-xs font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">94% Match</span>
+</div>
+</div>
+</div>
+<div class="absolute top-4 right-4 bg-red-500 rounded-full px-2.5 py-1 flex items-center gap-1.5 shadow-lg animate-pulse ring-4 ring-red-500/20 shadow-[0_0_15px_rgba(239,68,68,0.5)]">
+<span class="w-1.5 h-1.5 bg-white rounded-full"></span>
+<span class="text-[10px] font-bold text-white uppercase tracking-wider">Live</span>
+</div>
+<div class="absolute inset-x-0 bottom-0 p-4 pt-12 bg-gradient-to-t from-black/80 via-black/40 to-transparent text-white">
+<div class="flex items-end justify-between">
+<div>
+<div class="flex items-center gap-2 mb-1">
+<h3 class="text-xl font-bold">Elena, 22</h3>
+<span class="material-symbols-outlined text-blue-400 text-[18px] fill-current">verified</span>
+</div>
+<div class="flex items-center gap-3 text-sm text-white/80">
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">location_on</span> 5.2 miles
+                                </span>
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">school</span> NYU Student
+                                </span>
+</div>
+</div>
+<button class="match-gradient size-12 rounded-full flex items-center justify-center shadow-lg shadow-primary/40 transform active:scale-90 transition-transform animate-glow">
+<span class="material-symbols-outlined text-white text-[24px]">bolt</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Quick Match FAB -->
+<div class="fixed bottom-24 right-4 z-40">
+<button class="match-gradient w-16 h-16 rounded-full flex flex-col items-center justify-center text-white shadow-[0_8px_30px_rgb(124,58,237,0.5)] transform hover:scale-110 active:scale-90 transition-all duration-300 animate-float">
+<span class="material-symbols-outlined text-[24px]">magic_button</span>
+<span class="text-[8px] font-bold uppercase tracking-tighter">Match</span>
+</button>
+</div>
+<!-- Bottom Navigation Bar -->
+<nav class="fixed bottom-0 inset-x-0 z-50 bg-white/60 dark:bg-background-dark/60 backdrop-blur-xl border-t border-white/20 dark:border-primary/10 px-4 pb-6 pt-3 transition-all duration-500">
+<div class="flex items-center justify-between">
+<a class="flex flex-col items-center gap-1 group" href="#">
+<span class="material-symbols-outlined text-primary text-[28px] fill-current transition-all">explore</span>
+<span class="text-[10px] font-bold text-primary">Discovery</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-primary/40 hover:text-primary transition-all" href="#">
+<span class="material-symbols-outlined text-[28px]">chat_bubble</span>
+<span class="text-[10px] font-medium">Chat</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-primary/40 hover:text-primary transition-all" href="#">
+<div class="relative">
+<span class="material-symbols-outlined text-[28px]">groups</span>
+<span class="absolute -top-1 -right-1 w-2 h-2 bg-secondary rounded-full border-2 border-white dark:border-background-dark"></span>
+</div>
+<span class="text-[10px] font-medium">Rooms</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-primary/40 hover:text-primary transition-all" href="#">
+<span class="material-symbols-outlined text-[28px]">account_balance_wallet</span>
+<span class="text-[10px] font-medium">Wallet</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-primary/40 hover:text-primary transition-all" href="#">
+<span class="material-symbols-outlined text-[28px]">person</span>
+<span class="text-[10px] font-medium">Profile</span>
+</a>
+</div>
+</nav>
+</body></html>
