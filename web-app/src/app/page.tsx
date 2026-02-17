@@ -19,8 +19,15 @@ import {
 import { Pricing } from '@/components/Pricing';
 import Head from 'next/head';
 
+interface ModalProps {
+    isOpen: boolean;
+    onClose: () => void;
+    title: string;
+    children: React.ReactNode;
+}
+
 // Modal Component
-const Modal = ({ isOpen, onClose, title, children }) => (
+const Modal = ({ isOpen, onClose, title, children }: ModalProps) => (
     <AnimatePresence>
         {isOpen && (
             <motion.div
@@ -61,7 +68,7 @@ export default function LandingPage() {
         return () => window.removeEventListener('scroll', handleScroll);
     }, []);
 
-    const handleWaitlistSubmit = (e) => {
+    const handleWaitlistSubmit = (e: React.FormEvent) => {
         e.preventDefault();
         alert(`Thanks! ${email} has been added to our priority waitlist.`);
         setShowWaitlist(false);
