@@ -20,8 +20,8 @@ const INTERESTS = [
 ];
 
 export default function ProfileSetupScreen({ navigation }: any) {
-    const { userProfile, updateProfile } = useAuth();
-    const [fullName, setFullName] = useState(userProfile?.full_name || '');
+    const { profile, updateProfile } = useAuth();
+    const [fullName, setFullName] = useState(profile?.full_name || '');
     const [gender, setGender] = useState<'male' | 'female' | 'other' | null>(null);
     const [bio, setBio] = useState('');
     const [selectedInterests, setSelectedInterests] = useState<string[]>([]);

@@ -1,7 +1,7 @@
 {
     "expo": {
-        "name": "Social App",
-        "slug": "social-app",
+        "name": "SoulMatch",
+        "slug": "soulmatch-app",
         "version": "1.0.0",
         "orientation": "portrait",
         "icon": "./assets/icon.png",
@@ -15,13 +15,34 @@
             "**/*"
         ],
         "ios": {
-            "supportsTablet": true
+            "supportsTablet": true,
+            "bundleIdentifier": "com.soulmatch.app",
+            "buildNumber": "1",
+            "infoPlist": {
+                "NSCameraUsageDescription": "SoulMatch needs camera access for video calls and profile photos.",
+                "NSMicrophoneUsageDescription": "SoulMatch needs microphone access for audio and video calls.",
+                "NSPhotoLibraryUsageDescription": "SoulMatch needs photo library access to upload profile pictures.",
+                "NSLocationWhenInUseUsageDescription": "SoulMatch uses your location to find matches near you."
+            }
         },
         "android": {
             "adaptiveIcon": {
                 "foregroundImage": "./assets/adaptive-icon.png",
-                "backgroundColor": "#ffffff"
-            }
+                "backgroundColor": "#ec4899"
+            },
+            "package": "com.soulmatch.app",
+            "versionCode": 1,
+            "permissions": [
+                "CAMERA",
+                "RECORD_AUDIO",
+                "READ_EXTERNAL_STORAGE",
+                "WRITE_EXTERNAL_STORAGE",
+                "ACCESS_FINE_LOCATION",
+                "ACCESS_COARSE_LOCATION",
+                "VIBRATE",
+                "RECEIVE_BOOT_COMPLETED"
+            ],
+            "usesCleartextTraffic": true
         },
         "web": {
             "favicon": "./assets/favicon.png"
@@ -31,10 +52,42 @@
                 "expo-build-properties",
                 {
                     "android": {
-                        "usesCleartextTraffic": true
+                        "usesCleartextTraffic": true,
+                        "compileSdkVersion": 34,
+                        "targetSdkVersion": 34,
+                        "minSdkVersion": 24
+                    },
+                    "ios": {
+                        "deploymentTarget": "13.4"
                     }
                 }
+            ],
+            [
+                "expo-image-picker",
+                {
+                    "photosPermission": "Allow SoulMatch to access your photos for profile pictures.",
+                    "cameraPermission": "Allow SoulMatch to access your camera for video calls."
+                }
+            ],
+            [
+                "expo-location",
+                {
+                    "locationAlwaysAndWhenInUsePermission": "Allow SoulMatch to use your location to find nearby matches."
+                }
+            ],
+            [
+                "expo-notifications",
+                {
+                    "icon": "./assets/icon.png",
+                    "color": "#ec4899",
+                    "sounds": []
+                }
             ]
-        ]
+        ],
+        "extra": {
+            "eas": {
+                "projectId": "soulmatch-app"
+            }
+        }
     }
 }
