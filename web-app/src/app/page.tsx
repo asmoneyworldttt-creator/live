@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from 'react';
+import Link from 'next/link';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
     Heart,
@@ -145,12 +146,20 @@ export default function LandingPage() {
                         <a href="#pricing" className="hover:text-white hover:glow-text transition-all duration-300">Pricing</a>
                     </div>
 
-                    <button
-                        onClick={() => setShowDownload(true)}
-                        className="px-6 py-2.5 bg-white text-black text-sm font-bold rounded-full hover:bg-gray-100 hover:scale-105 transition-all active:scale-95 shadow-[0_0_20px_rgba(255,255,255,0.3)]"
-                    >
-                        Download App
-                    </button>
+                    <div className="flex items-center space-x-4">
+                        <Link
+                            href="/login"
+                            className="hidden md:block px-6 py-2.5 text-sm font-bold text-white hover:text-primary-400 transition-colors uppercase tracking-widest"
+                        >
+                            Log In
+                        </Link>
+                        <Link
+                            href="/signup"
+                            className="px-6 py-2.5 bg-white text-black text-sm font-bold rounded-full hover:bg-gray-100 hover:scale-105 transition-all active:scale-95 shadow-[0_0_20px_rgba(255,255,255,0.3)]"
+                        >
+                            Get Started
+                        </Link>
+                    </div>
                 </div>
             </nav>
 
@@ -197,13 +206,13 @@ export default function LandingPage() {
                                 transition={{ duration: 0.7, delay: 0.3 }}
                                 className="flex flex-col sm:flex-row gap-6 mb-24 w-full sm:w-auto"
                             >
-                                <button
-                                    onClick={() => setShowWaitlist(true)}
+                                <Link
+                                    href="/signup"
                                     className="px-8 py-4 bg-gradient-to-r from-primary-600 to-pink-600 rounded-full font-black text-lg shadow-lg shadow-primary-600/40 hover:shadow-primary-600/60 hover:scale-105 active:scale-95 transition-all flex items-center justify-center group"
                                 >
-                                    Join the Waitlist
+                                    Get Started Free
                                     <ChevronRight size={20} className="ml-2 group-hover:translate-x-1 transition-transform" />
-                                </button>
+                                </Link>
                                 <button
                                     onClick={() => setShowDemo(true)}
                                     className="px-8 py-4 font-bold glass-morphism rounded-full hover:bg-white/10 transition-all flex items-center justify-center group border border-white/10 hover:border-white/30"

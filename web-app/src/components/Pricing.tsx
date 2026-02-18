@@ -1,4 +1,5 @@
 import React from 'react';
+import Link from 'next/link';
 import { Check } from 'lucide-react';
 
 const plans = [
@@ -54,9 +55,9 @@ export const Pricing = () => {
                                     </li>
                                 ))}
                             </ul>
-                            <button className={`w-full py-4 rounded-full font-bold transition-all ${plan.popular ? 'bg-primary-500 text-white' : 'glass-morphism text-white hover:bg-white/10'}`}>
+                            <Link href="/signup" className={`block w-full py-4 text-center rounded-full font-bold transition-all ${plan.popular ? 'bg-primary-500 text-white' : 'glass-morphism text-white hover:bg-white/10'}`}>
                                 {plan.cta}
-                            </button>
+                            </Link>
                         </div>
                     ))}
                 </div>
