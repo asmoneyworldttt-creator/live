@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, StyleSheet } from 'react-native';
-import { RtcSurfaceView, VideoCanvasMode, RenderModeType } from 'react-native-agora';
+import { RtcSurfaceView, RenderModeType } from 'react-native-agora';
 import { theme } from '../../theme';
 import { Text } from '../common/Text';
 import { Feather } from '@expo/vector-icons';

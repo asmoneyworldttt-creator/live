@@ -14,7 +14,8 @@ import {
     Star,
     CheckCircle2,
     X,
-    Play
+    Play,
+    Check
 } from 'lucide-react';
 import { Pricing } from '@/components/Pricing';
 import Head from 'next/head';
@@ -488,5 +489,3 @@ export default function LandingPage() {
     );
 }
 
-// Helper icons
-import { Check } from 'lucide-react';
