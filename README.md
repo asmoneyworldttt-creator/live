@@ -1,4 +1,4 @@
-# Social App Project
+# SoulMatch - Social App
 
 ## Project Structure
 
@@ -12,34 +12,68 @@ This project contains the source code for the Social Networking & Video Chat app
   - `store/`: State management (Zustand)
   - `navigation/`: Navigation configuration
 
+- **`web-app/`**: Next.js Public Website & Web App
+  - `src/app/page.tsx`: Main Landing Page
+  - `src/app/login/page.tsx`: User Login
+  - `src/app/signup/page.tsx`: User Registration
+  - `src/hooks/useAuth.ts`: Web Authentication Hook
+
 - **`backend/`**: Node.js Backend Server
   - `src/controllers/`: API controllers
   - `src/services/`: Backend services
   - `src/routes/`: API routes
 
-- **`admin-panel/`**: Next.js Admin Panel (Web)
-
-- **`web-app/`**: Public Website / Web App
-  - `index.html`: Main landing/app page
-
 ## Getting Started
 
-1.  **Database Setup**:
-    - Create a Supabase project.
-    - Run the SQL queries in `../supabase_schema.sql` in the Supabase SQL Editor.
+### 1. Web App (Next.js)
 
-2.  **Mobile App**:
-    - `cd src` (This folder structure assumes a root package.json, you may need to init a React Native project here or wrap it).
-    - Configure `.env` with Supabase and Agora keys.
+Navigate to the `web-app` directory:
+```bash
+cd web-app
+npm install
+npm run dev
+```
+Open `http://localhost:3000` to view the landing page.
+- **Login**: `/login`
+- **Signup**: `/signup`
+- **Dashboard**: `http://localhost:3000/dashboard` (Authenticated only)
 
-3.  **Backend**:
-    - `cd backend`
-    - `npm install`
-    - Configure `.env`.
-    - `npm run dev`
+### 2. Mobile App (React Native / Expo)
 
-4.  **Web**:
-    - Open `web-app/index.html` in a browser to view the Discovery Feed design.
+Navigate to the root directory:
+```bash
+npm install
+npm start
+```
+- Scan the QR code with Expo Go.
+- Press `a` for Android emulator.
+
+### 3. Building the Android APK
+
+To generate a standalone APK for Android devices:
+
+```bash
+# Install EAS CLI globally if you haven't already
+npm install -g eas-cli
+
+# Login to your Expo account
+eas login
+
+# Build the APK
+eas build -p android --profile apk
+```
+
+Wait for the build to complete. Expo will provide a download link for the `.apk` file.
+
+## Configuration
+
+Ensure you have created a `.env` file in the root with your Supabase and Agora keys:
+
+```env
+EXPO_PUBLIC_SUPABASE_URL=https://your-project.supabase.co
+EXPO_PUBLIC_SUPABASE_ANON_KEY=your-anon-key
+EXPO_PUBLIC_AGORA_APP_ID=your-agora-app-id
+```
 
 ## Documentation
 See `../master-technical-architecture.md` and `../12-week-roadmap.md` for detailed architecture and planning.
